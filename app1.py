@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import requests
@@ -12,16 +13,15 @@ from sklearn.neural_network import MLPRegressor
 import plotly.express as px
 import plotly.graph_objects as go
 
-
 # -------------------------------
 # CONFIG
 # -------------------------------
 GEOCODE_URL = "https://geocoding-api.open-meteo.com/v1/search"
 SOLAR_URL = "https://api.open-meteo.com/v1/forecast"
 
-WEATHER_CSV = r"C:\Users\mayan\.cache\kagglehub\datasets\chitwanmanchanda\weather-api-data\versions\1\data\BTECH\Plant_1_Weather_Sensor_Data.csv"
-GEN_CSV     = r"C:\Users\mayan\.cache\kagglehub\datasets\chitwanmanchanda\weather-api-data\versions\1\data\BTECH\Plant_1_Generation_Data.csv"
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+WEATHER_CSV = os.path.join(BASE_DIR, "Plant_1_Weather_Sensor_Data.csv")
+GEN_CSV     = os.path.join(BASE_DIR, "Plant_1_Generation_Data.csv")
 
 # ============================================================
 # UTILS: DATA LOADING
@@ -393,3 +393,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
